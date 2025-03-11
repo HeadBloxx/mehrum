@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import settings
+from django.conf.urls.static import static
+from administrative.views import download_qr
 
 urlpatterns = [
+    path("admin/download_qr/<int:obj_id>/", download_qr, name="download_qr"),
     path('admin/', admin.site.urls),
-    path('', include('qr_gen.urls'))
-]
+    path('', include('qr_gen.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
