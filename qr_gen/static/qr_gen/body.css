@@ -1,0 +1,55 @@
+div {
+    background: hsla(51, 100%, 59%, 0.603);
+    background: linear-gradient(130deg, rgba(255, 223, 45, 0.486) 0%, rgba(200, 161, 20, 0.525) 35%, rgba(255, 203, 48, 0.541) 100%);
+    border-radius: 10px;
+    width: 20rem;
+    max-width: 700px;
+    margin: auto;
+    padding: 3rem;
+
+    position: relative;
+
+    border: 3px solid #ffe062cc;
+}
+
+.mehrum-slika {
+    margin-top: 20px;
+    max-width: 20rem;
+    height: auto;
+    display: block;
+}
+
+.mehrum-datum {
+    margin-left: 20px;
+    color: rgba(0, 0, 0, 0.671);
+    font-size: 1rem; /* Use rem for better scaling */
+    height: auto;
+    width: 100%;
+}
+
+.mehrum-text {
+    font-size: 1rem;
+}
+
+a {
+    font-size: xx-small;
+    opacity: .5;
+}
+
+hr {
+    border: 0.1rem solid rgba(0, 0, 0, 0.671);
+    border-radius: 3rem;
+}
+
+/* Make adjustments for smaller screens */
+@media (max-width: 768px) {
+
+    .mehrum-datum {
+        font-size: 0.9rem;
+        margin-left: 10px;
+    }
+
+    .mehrum-text {
+        font-size: 0.9rem;
+    }
+}

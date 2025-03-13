@@ -1,0 +1,32 @@
+body {
+   
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    background: linear-gradient(rgba(255, 255, 255, 0.655), rgba(255, 255, 255, 0.671)), 
+              url('/static/background.jpg');
+    background-size: cover;
+    background-position: center;
+
+    overflow-x: hidden;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.inna-lillahi {
+    display: block;
+    width: 20vw;
+    height: auto;
+    margin: 0 auto 2vw auto;
+}
+
+.no-drag {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}

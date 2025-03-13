@@ -7,10 +7,10 @@ from django.contrib import admin
 from .models import Mehrum
 
 class MehrumAdmin(admin.ModelAdmin):
-    list_display = ('id', 'ime', 'datum', 'download_qr')  # Display QR download link in admin
+    list_display = ('id', 'ime', 'datum_dzenaze', 'download_qr')  # Display QR download link in admin
 
     def save_model(self, request, obj, form, change):
-        """Generate a QR code when a new object is saved."""
+        
         super().save_model(request, obj, form, change)
 
         qr_data = f"https://mehrum.me/{obj.id}/"
@@ -24,7 +24,6 @@ class MehrumAdmin(admin.ModelAdmin):
         qr.save(qr_path)
 
     def download_qr(self, obj):
-        """Provide a QR download link in the admin panel."""
         qr_url = f"/admin/download_qr/{obj.id}/"
         print(qr_url)
         return mark_safe(f'<a href="{qr_url}">Preuzmi QR</a>')

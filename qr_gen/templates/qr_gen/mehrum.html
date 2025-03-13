@@ -1,13 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ model.ime }}</title>
-  </head>
-  <body>
-    <h2>{{ model.ime }}</h2>
-    <img src="{{ model.slika.url }}">
-  </body>
-</html>
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{{ model.ime }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'qr_gen/heading.css' %}">
+<link rel="stylesheet" href="{% static 'qr_gen/body.css' %}">
+<link rel="stylesheet" href="{% static 'qr_gen/corners.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div>
+  <img class="corner top-left" src="{% static 'qr_gen/media/corner1.png' %}"></img>
+  <img class="corner top-right" src="{% static 'qr_gen/media/corner1.png' %}"></img>
+  <img class="corner bottom-left" src="{% static 'qr_gen/media/corner1.png' %}"></img>
+  <img class="corner bottom-right" src="{% static 'qr_gen/media/corner1.png' %}"></img>
+
+  <h1 class="mehrum-ime glossy-text-green display">{{ model.ime }}</h1>
+  <h2 class="rahimahu glossy-text-green display">الله يغفر</h2>
+
+  {% if model.slika %}
+  <img class="mehrum-slika display no-drag" src="{{ model.slika.url }}">
+  {% endif %}
+  <i><h3 class="mehrum-datum display">Datum rođenja: {{ model.datum_rodjenja|date:"d. F Y." }}</h3></i>
+  <i><h3 class="mehrum-datum display">Datum dženaze: {{ model.datum_dzenaze|date:"d. F Y." }}</h3></i>
+  <hr>
+  <p class="mehrum-text">{{ model.text }}</p>
+</div>
+
+<a href="https://www.freepik.com/free-vector/flat-arabic-pattern-background_15365516.htm">Image Credits</a>
+{% endblock %}
